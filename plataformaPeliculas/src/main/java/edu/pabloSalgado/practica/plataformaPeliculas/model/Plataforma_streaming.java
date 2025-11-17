@@ -1,6 +1,6 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
-import edu.pabloSalgado.practica.plataformaPeliculas.enums.Pais;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Pais;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

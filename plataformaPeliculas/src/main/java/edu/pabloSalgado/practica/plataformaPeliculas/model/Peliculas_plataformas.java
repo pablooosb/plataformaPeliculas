@@ -2,8 +2,12 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
 import java.time.LocalDate;
 
-import edu.pabloSalgado.practica.plataformaPeliculas.enums.Calidad;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Calidad;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Money;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -28,10 +32,18 @@ public class Peliculas_plataformas {
     private Plataforma_streaming plataforma_streaming;
     @Column(name = "fecha_estreno_en_plataforma", nullable = false)
     private LocalDate fecha_estreno_en_plataforma;
-    @Column(name = "precio_alquiler")
-    private Double precio_alquiler;
-    @Column(name = "precio_compra")
-    private Double precio_compra;
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "amount", column = @Column(name = "precio", nullable = false, scale = 2)),
+        @AttributeOverride(name = "currency", column = @Column(name = "moneda", nullable = false, length = 3))
+    })
+    private Money precio_alquiler;
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "amount", column = @Column(name = "precio", nullable = false, scale = 2)),
+        @AttributeOverride(name = "currency", column = @Column(name = "moneda", nullable = false, length = 3))
+    })
+    private Money precio_compra;
     @Column(name = "calidad")
     private Calidad calidad;
 }

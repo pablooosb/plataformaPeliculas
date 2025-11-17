@@ -3,8 +3,8 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 import java.time.LocalDate;
 import java.util.Set;
 
-import edu.pabloSalgado.practica.plataformaPeliculas.enums.Edad_recomendada;
-import edu.pabloSalgado.practica.plataformaPeliculas.enums.Genero;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_recomendada;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

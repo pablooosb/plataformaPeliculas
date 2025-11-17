@@ -1,8 +1,9 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
-import java.time.LocalDate;
 import java.util.Set;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Dni;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Fecha_nacimiento;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,16 +27,16 @@ public class Actor {
     private String nombre;
     @Column(length = 100, nullable = false)
     private String apellido;
-    private String dni;
+    private Dni dni;
     @Column(length = 50, nullable = false)
     private String nacionalidad;
-    private LocalDate fecha_nacimiento;
+    private Fecha_nacimiento fecha_nacimiento;
     @Column
     private boolean activo;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "actores_peliculas",
-        joinColumns = @JoinColumn(name = "actor_id") ,
+        joinColumns = @JoinColumn(name = "actor_id"),
         inverseJoinColumns = @JoinColumn(name = "pelicula_id") )
     private Set<Pelicula> peliculas;
 }
