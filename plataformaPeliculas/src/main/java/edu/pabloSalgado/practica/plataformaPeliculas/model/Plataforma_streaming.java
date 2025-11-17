@@ -1,5 +1,6 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.enums.Pais;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,5 +18,5 @@ public class Plataforma_streaming {
     @Column(length=100, nullable = false)
     private String nombre;
     @Column(length=100, nullable = false)
-    private String pais;
+    private Pais pais;
 }

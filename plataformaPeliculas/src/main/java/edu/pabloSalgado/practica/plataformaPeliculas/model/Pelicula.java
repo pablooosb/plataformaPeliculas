@@ -2,6 +2,8 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
 import java.time.LocalDate;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.enums.Edad_recomendada;
+import edu.pabloSalgado.practica.plataformaPeliculas.enums.Genero;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class Pelicula {
     @Column
     private LocalDate fecha_estreno;
     @Column
-    private String genero;
+    private Genero genero;
     @Column
-    private int edad_recomendada;
+    private Edad_recomendada edad_recomendada;
 }
