@@ -11,6 +11,8 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Dni;
 
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Long>{
+    // Buscar por id
+    Optional<Actor> findById(Long id);
     // Buscar por nombre
     List<Actor> findByNombre(String nombre);
     // Buscar por DNI

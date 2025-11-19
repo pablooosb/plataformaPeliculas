@@ -39,4 +39,90 @@ public class Pelicula {
 
     @ManyToMany(mappedBy = "peliculas")
     private Set<Actor> actores;
+
+    public Pelicula() {
+    }
+
+    public Pelicula(Long pelicula_id, String titulo, int duracion, LocalDate fecha_estreno, Genero genero,
+            Edad_recomendada edad_recomendada, Director director, Set<Actor> actores) {
+        this.pelicula_id = pelicula_id;
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.fecha_estreno = fecha_estreno;
+        this.genero = genero;
+        this.edad_recomendada = edad_recomendada;
+        this.director = director;
+        this.actores = actores;
+    }
+
+    public Long getPelicula_id() {
+        return pelicula_id;
+    }
+
+    public void setPelicula_id(Long pelicula_id) {
+        this.pelicula_id = pelicula_id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public LocalDate getFecha_estreno() {
+        return fecha_estreno;
+    }
+
+    public void setFecha_estreno(LocalDate fecha_estreno) {
+        this.fecha_estreno = fecha_estreno;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public Edad_recomendada getEdad_recomendada() {
+        return edad_recomendada;
+    }
+
+    public void setEdad_recomendada(Edad_recomendada edad_recomendada) {
+        this.edad_recomendada = edad_recomendada;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public Set<Actor> getActores() {
+        return actores;
+    }
+
+    public void setActores(Set<Actor> actores) {
+        this.actores = actores;
+    }
+
+    @Override
+    public String toString() {
+        return "Pelicula [pelicula_id=" + pelicula_id + ", titulo=" + titulo + ", duracion=" + duracion
+                + ", fecha_estreno=" + fecha_estreno + ", genero=" + genero + ", edad_recomendada=" + edad_recomendada
+                + ", director=" + director + ", actores=" + actores + "]";
+    }
 }
