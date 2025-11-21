@@ -26,10 +26,10 @@ public class Peliculas_plataformas {
     private Long peliculas_plataformas_id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pelicula_id")
-    private Pelicula pelicula;
+    private Pelicula pelicula_id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plataforma_streaming_id")
-    private Plataforma_streaming plataforma_streaming;
+    private Plataforma_streaming plataforma_streaming_id;
     @Column(name = "fecha_estreno_en_plataforma", nullable = false)
     private LocalDate fecha_estreno_en_plataforma;
     @Embedded

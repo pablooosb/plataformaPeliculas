@@ -20,7 +20,7 @@ public class Director {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long actor_id;
+    private Long director_id;
     @Column(length = 100, nullable = false)
     private String nombre;
     @Column(length = 100, nullable = false)
@@ -35,12 +35,12 @@ public class Director {
     @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Pelicula> peliculas;
 
-    public Long getActor_id() {
-        return actor_id;
+    public Long getDirector_id() {
+        return director_id;
     }
 
-    public void setActor_id(Long actor_id) {
-        this.actor_id = actor_id;
+    public void setDirector_id(Long director_id) {
+        this.director_id = director_id;
     }
 
     public String getNombre() {
@@ -101,7 +101,7 @@ public class Director {
 
     @Override
     public String toString() {
-        return "Director [actor_id=" + actor_id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
+        return "Director [director_id=" + director_id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
                 + ", nacionalidad=" + nacionalidad + ", fecha_nacimiento=" + fecha_nacimiento + ", activo=" + activo
                 + ", peliculas=" + peliculas + "]";
     }

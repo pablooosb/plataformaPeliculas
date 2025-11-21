@@ -10,5 +10,7 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.Plataforma_streaming;
 @Repository
 public interface Plataforma_streamingRepository extends JpaRepository<Plataforma_streaming, Long>{
     // Buscamos por nombre
-    List<Plataforma_streaming> findByNombre(String nombre);
+    public List<Plataforma_streaming> findByNombre(String nombre);
+    // Buscamos por pais
+    public List<Plataforma_streaming> findByPais(String pais);
 }

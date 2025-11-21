@@ -12,9 +12,9 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 @Repository
 public interface PeliculaRepository extends JpaRepository<Pelicula, Long>{
     // Buscar por titulo
-    List<Pelicula> findByTitulo(String titulo);
+    public List<Pelicula> findByTitulo(String titulo);
     // Buscar por genero
-    List<Genero> findByGenero(Genero genero);
+    public List<Pelicula> findByGenero(Genero genero);
     // Buscar por edad recomendada
-    List<Edad_recomendada> findByEdad_recomendada(Edad_recomendada edad_recomendada);
+    public List<Pelicula> findByEdad_recomendada(Edad_recomendada edad_recomendada);
 }
