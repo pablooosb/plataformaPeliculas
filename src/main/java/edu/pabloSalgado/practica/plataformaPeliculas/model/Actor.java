@@ -6,6 +6,7 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Dni;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Fecha_nacimiento;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -27,15 +28,17 @@ public class Actor {
     private String nombre;
     @Column(length = 100, nullable = false)
     private String apellido;
+    @Embedded
     private Dni dni;
     @Column(length = 50, nullable = false)
     private String nacionalidad;
+    @Embedded
     private Fecha_nacimiento fecha_nacimiento;
     @Column
     private boolean activo;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "actores_peliculas",
+    @JoinTable(name = "Actuaciones",
         joinColumns = @JoinColumn(name = "actor_id"),
         inverseJoinColumns = @JoinColumn(name = "pelicula_id") )
     private List<Pelicula> peliculas;
