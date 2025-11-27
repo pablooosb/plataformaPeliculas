@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
-import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_recomendada;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 
 @Repository
@@ -16,5 +15,5 @@ public interface PeliculaRepository extends JpaRepository<Pelicula, Long>{
     // Buscar por genero
     public List<Pelicula> findByGenero(Genero genero);
     // Buscar por edad recomendada
-    public List<Pelicula> findByEdad_recomendada(Edad_recomendada edad_recomendada);
+    public List<Pelicula> findByEdad_recomendada(Pelicula pelicula);
 }

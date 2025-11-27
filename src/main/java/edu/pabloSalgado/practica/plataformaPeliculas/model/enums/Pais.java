@@ -1,11 +1,12 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model.enums;
 
 public enum Pais {
-    CANADA,
-    ESTADOS_UNIDOS,
+    USA,
     ESPAÑA,
-    AUSTRALIA,
     INDIA,
+    ITALIA,
+    CANADA,
+    AUSTRALIA,
     CHINA,
     COREA_DEL_SUR,
     MEXICO,

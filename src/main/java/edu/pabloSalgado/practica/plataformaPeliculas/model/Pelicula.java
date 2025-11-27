@@ -7,6 +7,8 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_recomendad
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,8 +30,10 @@ public class Pelicula {
     private int duracion;
     @Column
     private LocalDate fecha_estreno;
+    @Enumerated(EnumType.STRING)
     @Column
     private Genero genero;
+    @Enumerated(EnumType.STRING)
     @Column
     private Edad_recomendada edad_recomendada;
 

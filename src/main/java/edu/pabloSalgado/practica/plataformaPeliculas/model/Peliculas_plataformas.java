@@ -9,6 +9,8 @@ import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,16 +36,17 @@ public class Peliculas_plataformas {
     private LocalDate fecha_estreno_en_plataforma;
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "amount", column = @Column(name = "precio", nullable = false, scale = 2)),
-        @AttributeOverride(name = "currency", column = @Column(name = "moneda", nullable = false, length = 3))
+        @AttributeOverride(name = "amount", column = @Column(name = "precio_alquiler", nullable = false, scale = 2)),
+        @AttributeOverride(name = "currency", column = @Column(name = "moneda_alquiler", nullable = false, length = 3))
     })
     private Money precio_alquiler;
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "amount", column = @Column(name = "precio", nullable = false, scale = 2)),
-        @AttributeOverride(name = "currency", column = @Column(name = "moneda", nullable = false, length = 3))
+        @AttributeOverride(name = "amount", column = @Column(name = "precio_compra", nullable = false, scale = 2)),
+        @AttributeOverride(name = "currency", column = @Column(name = "moneda_compra", nullable = false, length = 3))
     })
     private Money precio_compra;
+    @Enumerated(EnumType.STRING)
     @Column(name = "calidad")
     private Calidad calidad;
 }

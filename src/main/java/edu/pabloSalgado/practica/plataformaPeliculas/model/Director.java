@@ -4,6 +4,8 @@ import java.util.Set;
 
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Dni;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Fecha_nacimiento;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -27,10 +29,19 @@ public class Director {
     @Column(length = 100, nullable = false)
     private String apellido;
     @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "numero", column = @Column(name = "dni_numero")),
+        @AttributeOverride(name = "letra", column = @Column(name = "dni_letra"))
+    })
     private Dni dni;
     @Column(length = 50, nullable = false)
     private String nacionalidad;
     @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "dia", column = @Column(name = "fecha_nacimiento_dia")),
+        @AttributeOverride(name = "mes", column = @Column(name = "fecha_nacimiento_mes")),
+        @AttributeOverride(name = "anho", column = @Column(name = "fecha_nacimiento_anho"))
+    })
     private Fecha_nacimiento fecha_nacimiento;
     @Column
     private boolean activo;

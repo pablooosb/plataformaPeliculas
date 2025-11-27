@@ -3,6 +3,8 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Pais;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,6 +19,7 @@ public class Plataforma_streaming {
     private Long plataforma_streaming_id;
     @Column(length=100, nullable = false)
     private String nombre;
+    @Enumerated(EnumType.STRING)
     @Column(length=100, nullable = false)
     private Pais pais;
     
