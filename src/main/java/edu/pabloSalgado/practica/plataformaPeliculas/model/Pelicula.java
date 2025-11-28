@@ -6,6 +6,7 @@ import java.util.Set;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_minima;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

@@ -27,8 +27,6 @@ public class PeliculaServiceImpl implements IPeliculaService{
         return null;
     }
 
-    
-
     @Override
     public Pelicula actualizarOGuardar(Pelicula pelicula){
         if (pelicula.getPelicula_id() == null) {

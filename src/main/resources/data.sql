@@ -1,3 +1,10 @@
+CREATE OR REPLACE VIEW vista_plataformas_streaming AS
+SELECT
+    plataforma_streaming_id,
+    nombre,
+    pais
+FROM plataformas_streaming;
+
 INSERT INTO plataformas_streaming (nombre, pais) VALUES
 ('Netflix', 'USA'),
 ('HBO Max', 'USA'),
@@ -19,6 +26,20 @@ INSERT INTO plataformas_streaming (nombre, pais) VALUES
 ('Vudu', 'USA'),
 ('Sky Show', 'ITALIA'),
 ('Mubi', 'ESPAÑA');
+
+CREATE OR REPLACE VIEW vista_directores AS
+SELECT
+    director_id,
+    nombre,
+    apellido,
+    dni_numero,
+    dni_letra,
+    nacionalidad,
+    fecha_nacimiento_dia,
+    fecha_nacimiento_mes,
+    fecha_nacimiento_anho,
+    activo
+FROM directores;
 
 INSERT INTO directores (nombre, apellido, dni_numero, dni_letra, nacionalidad, fecha_nacimiento_dia, fecha_nacimiento_mes, fecha_nacimiento_anho, activo) VALUES
 ('Lana', 'Wachowski', 12345678, 'Z', 'Estadounidense', 21, 6, 1965, true),
@@ -42,6 +63,20 @@ INSERT INTO directores (nombre, apellido, dni_numero, dni_letra, nacionalidad, f
 ('Ethan', 'Coen', 10111213, 'R', 'Estadounidense', 21, 9, 1957, true),
 ('Richard', 'Linklater', 11121314, 'C', 'Estadounidense', 30, 7, 1960, true);
 
+CREATE OR REPLACE VIEW vista_actores AS
+SELECT
+    actor_id,
+    nombre,
+    apellido,
+    dni_numero,
+    dni_letra,
+    nacionalidad,
+    fecha_nacimiento_dia,
+    fecha_nacimiento_mes,
+    fecha_nacimiento_anho,
+    activo
+FROM actores;
+
 INSERT INTO actores (nombre, apellido, dni_numero, dni_letra, nacionalidad, fecha_nacimiento_dia, fecha_nacimiento_mes, fecha_nacimiento_anho, activo) VALUES
 ('Keanu', 'Reeves', 23456780, 'T', 'Canadiense', 2, 9, 1964, true),
 ('Marlon', 'Brando', 34567891, 'R', 'Estadounidense', 3, 4, 1924, false),
@@ -63,6 +98,17 @@ INSERT INTO actores (nombre, apellido, dni_numero, dni_letra, nacionalidad, fech
 ('Brad', 'Pitt', 10123457, 'F', 'Estadounidense', 18, 12, 1963, true),
 ('Matt', 'Damon', 11234568, 'B', 'Estadounidense', 8, 10, 1970, true),
 ('Emma', 'Stone', 12345679, 'R', 'Estadounidense', 6, 11, 1988, true);
+
+CREATE OR REPLACE VIEW vista_peliculas AS
+SELECT
+    pelicula_id,
+    titulo,
+    duracion,
+    fecha_estreno,
+    genero,
+    edad_minima,
+    director_id
+FROM peliculas;
 
 INSERT INTO peliculas (titulo, duracion, fecha_estreno, genero, edad_minima, director_id) VALUES
 ('Matrix', 136, '1999-03-31', 'CIENCIA_FICCION', 'PEGI_3', 1),
@@ -93,6 +139,19 @@ INSERT INTO peliculas (titulo, duracion, fecha_estreno, genero, edad_minima, dir
 ('No Country for Old Men', 122, '2007-11-21', 'DRAMA', 'PEGI_18', 19),
 ('Inside Llewyn Davis', 104, '2013-01-17', 'DRAMA', 'PEGI_12', 20);
 
+CREATE OR REPLACE VIEW vista_peliculas_plataformas AS
+SELECT
+    peliculas_plataformas_id,
+    pelicula_id,
+    plataforma_streaming_id,
+    fecha_estreno_en_plataforma,
+    precio_alquiler,
+    moneda_alquiler,
+    precio_compra,
+    moneda_compra,
+    calidad
+FROM peliculas_plataformas;
+
 INSERT INTO peliculas_plataformas (pelicula_id, plataforma_streaming_id, fecha_estreno_en_plataforma, precio_alquiler, moneda_alquiler, precio_compra, moneda_compra, calidad) VALUES
 (1, 1, '2023-01-15', 3.99, 'USD', 12.99, 'USD', 'HD'),
 (2, 2, '2023-03-20', 4.99, 'USD', 14.99, 'USD', 'FHD'),
@@ -114,6 +173,12 @@ INSERT INTO peliculas_plataformas (pelicula_id, plataforma_streaming_id, fecha_e
 (18, 13, '2024-02-01', 3.49, 'USD', 11.49, 'USD', 'UHD'),
 (19, 14, '2024-02-10', 4.49, 'USD', 13.49, 'USD', 'HD'),
 (20, 15, '2024-02-20', 2.99, 'USD', 9.99, 'USD', 'FHD');
+
+CREATE OR REPLACE VIEW vista_actuaciones AS
+SELECT
+    actor_id,
+    pelicula_id
+FROM actuaciones;
 
 INSERT INTO actuaciones (actor_id, pelicula_id) VALUES
 (1,1),
