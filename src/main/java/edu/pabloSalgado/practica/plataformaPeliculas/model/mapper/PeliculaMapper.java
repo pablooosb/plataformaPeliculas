@@ -3,7 +3,7 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model.mapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Director;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.PeliculaDTO;
-import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_recomendada;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_minima;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 
 public class PeliculaMapper {
@@ -15,9 +15,9 @@ public class PeliculaMapper {
             genero = pelicula.getGenero().name();
         }
 
-        int edad_recomendada = 0;
-        if (pelicula.getEdad_recomendada() != null){
-            edad_recomendada = pelicula.getEdad_recomendada().ordinal(); // ordinal() para convertir el enum a un int
+        String edad_minima = "";
+        if (pelicula.getEdad_minima() != null){
+            genero = pelicula.getEdad_minima().name();
         }
 
         Long director_id = null;
@@ -30,7 +30,7 @@ public class PeliculaMapper {
             pelicula.getDuracion(),
             pelicula.getFecha_estreno(),
             genero,
-            edad_recomendada,
+            edad_minima,
             director_id
         );
     }
@@ -47,8 +47,8 @@ public class PeliculaMapper {
             pelicula.setGenero(Genero.valueOf(dto.genero().toUpperCase()));
         }
 
-        if (dto.edad_recomendada() >= 0 && dto.edad_recomendada() < Edad_recomendada.values().length){
-            pelicula.setEdad_recomendada(Edad_recomendada.values()[dto.edad_recomendada()]);
+        if (dto.edad_minima() != null && !dto.genero().isBlank()){
+            pelicula.setEdad_minima(Edad_minima.valueOf(dto.edad_minima().toUpperCase()));
         }
 
         Director director = new Director();

@@ -14,6 +14,4 @@ public interface PeliculaRepository extends JpaRepository<Pelicula, Long>{
     public List<Pelicula> findByTitulo(String titulo);
     // Buscar por genero
     public List<Pelicula> findByGenero(Genero genero);
-    // Buscar por edad recomendada
-    public List<Pelicula> findByEdad_recomendada(Pelicula pelicula);
 }

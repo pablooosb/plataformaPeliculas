@@ -3,7 +3,7 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 import java.time.LocalDate;
 import java.util.Set;
 
-import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_recomendada;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_minima;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +35,7 @@ public class Pelicula {
     private Genero genero;
     @Enumerated(EnumType.STRING)
     @Column
-    private Edad_recomendada edad_recomendada;
+    private Edad_minima edad_minima;
 
     @ManyToOne
     @JoinColumn(name = "director_id", nullable = false)
@@ -48,13 +48,13 @@ public class Pelicula {
     }
 
     public Pelicula(Long pelicula_id, String titulo, int duracion, LocalDate fecha_estreno, Genero genero,
-            Edad_recomendada edad_recomendada, Director director, Set<Actor> actores) {
+            Edad_minima edad_minima, Director director, Set<Actor> actores) {
         this.pelicula_id = pelicula_id;
         this.titulo = titulo;
         this.duracion = duracion;
         this.fecha_estreno = fecha_estreno;
         this.genero = genero;
-        this.edad_recomendada = edad_recomendada;
+        this.edad_minima = edad_minima;
         this.director = director;
         this.actores = actores;
     }
@@ -99,12 +99,12 @@ public class Pelicula {
         this.genero = genero;
     }
 
-    public Edad_recomendada getEdad_recomendada() {
-        return edad_recomendada;
+    public Edad_minima getEdad_minima() {
+        return edad_minima;
     }
 
-    public void setEdad_recomendada(Edad_recomendada edad_recomendada) {
-        this.edad_recomendada = edad_recomendada;
+    public void setEdad_minima(Edad_minima edad_minima) {
+        this.edad_minima = edad_minima;
     }
 
     public Director getDirector() {
@@ -126,7 +126,7 @@ public class Pelicula {
     @Override
     public String toString() {
         return "Pelicula [pelicula_id=" + pelicula_id + ", titulo=" + titulo + ", duracion=" + duracion
-                + ", fecha_estreno=" + fecha_estreno + ", genero=" + genero + ", edad_recomendada=" + edad_recomendada
+                + ", fecha_estreno=" + fecha_estreno + ", genero=" + genero + ", edad_minima=" + edad_minima
                 + ", director=" + director + ", actores=" + actores + "]";
     }
 }

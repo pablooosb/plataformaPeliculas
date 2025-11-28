@@ -64,34 +64,34 @@ INSERT INTO actores (nombre, apellido, dni_numero, dni_letra, nacionalidad, fech
 ('Matt', 'Damon', 11234568, 'B', 'Estadounidense', 8, 10, 1970, true),
 ('Emma', 'Stone', 12345679, 'R', 'Estadounidense', 6, 11, 1988, true);
 
-INSERT INTO peliculas (titulo, duracion, fecha_estreno, genero, edad_recomendada, director_id) VALUES
-('Matrix', 136, '1999-03-31', 'CIENCIA_FICCION', "TRES", 1),
-('Cloud Atlas', 172, '2012-10-26', 'CIENCIA_FICCION', "DOCE", 1),
-('V for Vendetta', 132, '2005-03-17', 'ACCION', "DIECISEIS", 2),
-('El Padrino', 175, '1972-03-24', 'DRAMA', "DIECISEIS", 3),
-('Apocalypse Now', 147, '1979-08-15', 'DRAMA', "DIECIOCHO", 3),
-('Jurassic Park', 127, '1993-06-11', 'CIENCIA_FICCION', "DOCE", 4),
-('E.T.', 115, '1982-06-11', 'CIENCIA_FICCION', "TRES", 4),
-('Inception', 148, '2010-07-16', 'CIENCIA_FICCION', "DOCE", 5),
-('Interstellar', 169, '2014-11-07', 'CIENCIA_FICCION', "DOCE", 5),
-('Pulp Fiction', 154, '1994-10-14', 'ACCION', "DIECIOCHO", 6),
-('Kill Bill: Vol.1', 111, '2003-10-10', 'ACCION', "DIECIOCHO", 6),
-('Goodfellas', 146, '1990-09-21', 'DRAMA', "DIECIOCHO", 7),
-('The Irishman', 209, '2019-11-01', 'DRAMA', "DIECIOCHO", 7),
-('The Lord of the Rings: The Fellowship of the Ring', 178, '2001-12-19', 'FANTASIA', "DOCE", 8),
-('The Lord of the Rings: The Two Towers', 179, '2002-12-18', 'FANTASIA', "DOCE", 8),
-('Avatar', 162, '2009-12-18', 'CIENCIA_FICCION', "DOCE", 9),
-('Titanic', 195, '1997-12-19', 'DRAMA', "DOCE", 10),
-('Gladiator', 155, '2000-05-05', 'ACCION', "DIECISEIS", 11),
-('Star Wars: A New Hope', 121, '1977-05-25', 'CIENCIA_FICCION', "DOCE", 12),
-('Fight Club', 139, '1999-10-15', 'DRAMA', "DIECIOCHO", 13),
-('Gran Torino', 116, '2008-12-12', 'DRAMA', "DIECISEIS", 14),
-('Edward Scissorhands', 105, '1990-12-06', 'FANTASIA', "DOCE", 15),
-('Lost in Translation', 102, '2003-09-12', 'DRAMA', "DOCE", 16),
-('Pan''s Labyrinth', 118, '2006-10-11', 'FANTASIA', "DIECISEIS", 17),
-('The Grand Budapest Hotel', 99, '2014-03-28', 'COMEDIA', "DOCE", 18),
-('No Country for Old Men', 122, '2007-11-21', 'DRAMA', "DIECIOCHO", 19),
-('Inside Llewyn Davis', 104, '2013-01-17', 'DRAMA', "DOCE", 20);
+INSERT INTO peliculas (titulo, duracion, fecha_estreno, genero, edad_minima, director_id) VALUES
+('Matrix', 136, '1999-03-31', 'CIENCIA_FICCION', 'PEGI_3', 1),
+('Cloud Atlas', 172, '2012-10-26', 'CIENCIA_FICCION', 'PEGI_12', 1),
+('V for Vendetta', 132, '2005-03-17', 'ACCION', 'PEGI_16', 2),
+('El Padrino', 175, '1972-03-24', 'DRAMA', 'PEGI_16', 3),
+('Apocalypse Now', 147, '1979-08-15', 'DRAMA', 'PEGI_18', 3),
+('Jurassic Park', 127, '1993-06-11', 'CIENCIA_FICCION', 'PEGI_12', 4),
+('E.T.', 115, '1982-06-11', 'CIENCIA_FICCION', 'PEGI_3', 4),
+('Inception', 148, '2010-07-16', 'CIENCIA_FICCION', 'PEGI_12', 5),
+('Interstellar', 169, '2014-11-07', 'CIENCIA_FICCION', 'PEGI_12', 5),
+('Pulp Fiction', 154, '1994-10-14', 'ACCION', 'PEGI_18', 6),
+('Kill Bill: Vol.1', 111, '2003-10-10', 'ACCION', 'PEGI_18', 6),
+('Goodfellas', 146, '1990-09-21', 'DRAMA', 'PEGI_18', 7),
+('The Irishman', 209, '2019-11-01', 'DRAMA', 'PEGI_18', 7),
+('The Lord of the Rings: The Fellowship of the Ring', 178, '2001-12-19', 'FANTASIA', 'PEGI_12', 8),
+('The Lord of the Rings: The Two Towers', 179, '2002-12-18', 'FANTASIA', 'PEGI_12', 8),
+('Avatar', 162, '2009-12-18', 'CIENCIA_FICCION', 'PEGI_12', 9),
+('Titanic', 195, '1997-12-19', 'DRAMA', 'PEGI_12', 10),
+('Gladiator', 155, '2000-05-05', 'ACCION', 'PEGI_16', 11),
+('Star Wars: A New Hope', 121, '1977-05-25', 'CIENCIA_FICCION', 'PEGI_12', 12),
+('Fight Club', 139, '1999-10-15', 'DRAMA', 'PEGI_18', 13),
+('Gran Torino', 116, '2008-12-12', 'DRAMA', 'PEGI_16', 14),
+('Edward Scissorhands', 105, '1990-12-06', 'FANTASIA', 'PEGI_12', 15),
+('Lost in Translation', 102, '2003-09-12', 'DRAMA', 'PEGI_12', 16),
+('Pan''s Labyrinth', 118, '2006-10-11', 'FANTASIA', 'PEGI_16', 17),
+('The Grand Budapest Hotel', 99, '2014-03-28', 'COMEDIA', 'PEGI_12', 18),
+('No Country for Old Men', 122, '2007-11-21', 'DRAMA', 'PEGI_18', 19),
+('Inside Llewyn Davis', 104, '2013-01-17', 'DRAMA', 'PEGI_12', 20);
 
 INSERT INTO peliculas_plataformas (pelicula_id, plataforma_streaming_id, fecha_estreno_en_plataforma, precio_alquiler, moneda_alquiler, precio_compra, moneda_compra, calidad) VALUES
 (1, 1, '2023-01-15', 3.99, 'USD', 12.99, 'USD', 'HD'),
@@ -115,7 +115,7 @@ INSERT INTO peliculas_plataformas (pelicula_id, plataforma_streaming_id, fecha_e
 (19, 14, '2024-02-10', 4.49, 'USD', 13.49, 'USD', 'HD'),
 (20, 15, '2024-02-20', 2.99, 'USD', 9.99, 'USD', 'FHD');
 
-INSERT INTO Actuaciones (actor_id, pelicula_id) VALUES
+INSERT INTO actuaciones (actor_id, pelicula_id) VALUES
 (1,1),
 (3,1),
 (2,2),

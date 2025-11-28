@@ -49,15 +49,13 @@ public class Actor {
     private boolean activo;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "Actuaciones",
+    @JoinTable(name = "actuaciones",
         joinColumns = @JoinColumn(name = "actor_id"),
         inverseJoinColumns = @JoinColumn(name = "pelicula_id") )
     private List<Pelicula> peliculas;
 
     public Actor() {
     }
-
-    
 
     public Actor(Long actor_id, String nombre, String apellido, Dni dni, String nacionalidad, Fecha_nacimiento fecha_nacimiento, boolean activo, List<Pelicula> peliculas) {
         this.actor_id = actor_id;
@@ -69,8 +67,6 @@ public class Actor {
         this.activo = activo;
         this.peliculas = peliculas;
     }
-
-
 
     public Long getActor_id() {
         return actor_id;

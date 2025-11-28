@@ -7,6 +7,6 @@ public record PeliculaDTO(
     int duracion,
     LocalDate fecha_estreno,
     String genero,
-    int edad_recomendada,
+    String edad_minima,
     Long director_id
 ) {}
