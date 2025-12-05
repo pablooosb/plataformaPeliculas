@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record Pelicula_plataformaDTO(
-    PeliculaDTO pelicula_id,
-    Plataforma_streamingDTO plataforma_streaming_id,
+    Long pelicula_id,
+    Long plataforma_streaming_id,
     LocalDate fecha_estreno_en_plataforma,
     BigDecimal precioAlquiler,
     String monedaAlquiler,

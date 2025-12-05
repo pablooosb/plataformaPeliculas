@@ -6,7 +6,6 @@ import java.util.Set;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_minima;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -40,7 +39,7 @@ public class Pelicula {
 
     @ManyToOne
     @JoinColumn(name = "director_id", nullable = false)
-    private Director director;
+    private Long director_id;
 
     @ManyToMany(mappedBy = "peliculas")
     private Set<Actor> actores;
@@ -49,14 +48,14 @@ public class Pelicula {
     }
 
     public Pelicula(Long pelicula_id, String titulo, int duracion, LocalDate fecha_estreno, Genero genero,
-            Edad_minima edad_minima, Director director, Set<Actor> actores) {
+            Edad_minima edad_minima, Long director_id, Set<Actor> actores) {
         this.pelicula_id = pelicula_id;
         this.titulo = titulo;
         this.duracion = duracion;
         this.fecha_estreno = fecha_estreno;
         this.genero = genero;
         this.edad_minima = edad_minima;
-        this.director = director;
+        this.director_id = director_id;
         this.actores = actores;
     }
 
@@ -108,12 +107,12 @@ public class Pelicula {
         this.edad_minima = edad_minima;
     }
 
-    public Director getDirector() {
-        return director;
+    public Long getDirector_id() {
+        return director_id;
     }
 
-    public void setDirector(Director director) {
-        this.director = director;
+    public void setDirector_id(Long director_id) {
+        this.director_id = director_id;
     }
 
     public Set<Actor> getActores() {
@@ -128,6 +127,6 @@ public class Pelicula {
     public String toString() {
         return "Pelicula [pelicula_id=" + pelicula_id + ", titulo=" + titulo + ", duracion=" + duracion
                 + ", fecha_estreno=" + fecha_estreno + ", genero=" + genero + ", edad_minima=" + edad_minima
-                + ", director=" + director + ", actores=" + actores + "]";
+                + ", director_id=" + director_id + ", actores=" + actores + "]";
     }
 }
