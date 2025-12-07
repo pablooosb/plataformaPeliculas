@@ -35,7 +35,9 @@ public class PeliculaServiceImpl implements IPeliculaService{
         Edad_minima edad_minima = Edad_minima.valueOf(dto.edad_minima().toUpperCase());
         pelicula.setEdad_minima(edad_minima);
 
-        pelicula.setDirector_id(dto.director_id());
+        Director director = new Director();
+        director.setDirector_id(dto.director_id());
+        pelicula.setDirector(director);
 
         return peliculaRepo.save(pelicula);
     }
@@ -68,7 +70,9 @@ public class PeliculaServiceImpl implements IPeliculaService{
         Edad_minima edad_minima = Edad_minima.valueOf(dto.edad_minima().toUpperCase());
         pelicula.setEdad_minima(edad_minima);
 
-        pelicula.setDirector_id(dto.director_id());
+        Director director = new Director();
+        director.setDirector_id(dto.director_id());
+        pelicula.setDirector(director);
 
         return peliculaRepo.save(pelicula);
     }

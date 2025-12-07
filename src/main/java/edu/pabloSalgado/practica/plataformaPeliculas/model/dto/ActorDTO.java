@@ -1,6 +1,6 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model.dto;
 
-public record ActorDTO(
+public record ActorDTO( 
     String nombre,
     String apellido,
     int dniNumero,

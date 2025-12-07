@@ -1,5 +1,6 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model.mapper;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.model.Director;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.PeliculaDTO;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_minima;
@@ -19,13 +20,15 @@ public class PeliculaMapper {
             genero = pelicula.getEdad_minima().name();
         }
 
+        Long directorId = (pelicula.getDirector() != null) ? pelicula.getDirector().getDirector_id() : null;
+
         return new PeliculaDTO(
             pelicula.getTitulo(),
             pelicula.getDuracion(),
             pelicula.getFecha_estreno(),
             genero,
             edad_minima,
-            pelicula.getDirector_id()
+            directorId
         );
     }
 
@@ -45,7 +48,11 @@ public class PeliculaMapper {
             pelicula.setEdad_minima(Edad_minima.valueOf(dto.edad_minima().toUpperCase()));
         }
 
-        pelicula.setDirector_id(dto.director_id());
+        if (dto.director_id() != null){
+            Director director = new Director();
+            director.setDirector_id(dto.director_id()); 
+            pelicula.setDirector(director);
+        }
 
         return pelicula;
     }
