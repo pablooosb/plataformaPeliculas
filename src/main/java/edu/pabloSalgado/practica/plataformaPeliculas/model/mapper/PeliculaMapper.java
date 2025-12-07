@@ -15,7 +15,7 @@ public class PeliculaMapper {
             genero = pelicula.getGenero().name();
         }
 
-        String edad_minima = "";
+        String edadMinima = "";
         if (pelicula.getEdad_minima() != null){
             genero = pelicula.getEdad_minima().name();
         }
@@ -27,7 +27,7 @@ public class PeliculaMapper {
             pelicula.getDuracion(),
             pelicula.getFecha_estreno(),
             genero,
-            edad_minima,
+            edadMinima,
             directorId
         );
     }
@@ -44,8 +44,8 @@ public class PeliculaMapper {
             pelicula.setGenero(Genero.valueOf(dto.genero().toUpperCase()));
         }
 
-        if (dto.edad_minima() != null && !dto.genero().isBlank()){
-            pelicula.setEdad_minima(Edad_minima.valueOf(dto.edad_minima().toUpperCase()));
+        if (dto.edadMinima() != null && !dto.genero().isBlank()){
+            pelicula.setEdad_minima(Edad_minima.valueOf(dto.edadMinima().toUpperCase()));
         }
 
         if (dto.director_id() != null){

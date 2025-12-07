@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula_plataforma;
+import edu.pabloSalgado.practica.plataformaPeliculas.model.Plataforma_streaming;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.Pelicula_plataformaDTO;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Calidad;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Money;
@@ -24,8 +26,14 @@ public class Pelicula_plataformaServiceImpl implements IPelicula_plataformaServi
     public Pelicula_plataforma addPeliculaPlataforma(Pelicula_plataformaDTO dto){
         Pelicula_plataforma pelicula_plataforma = new Pelicula_plataforma();
 
-        pelicula_plataforma.setPelicula_id(dto.pelicula_id());
-        pelicula_plataforma.setPlataforma_streaming_id(dto.plataforma_streaming_id());
+        Pelicula pelicula = new Pelicula();
+        pelicula.setPelicula_id(dto.pelicula_id());
+        pelicula_plataforma.setPelicula(pelicula);
+
+        Plataforma_streaming plataforma_streaming = new Plataforma_streaming();
+        plataforma_streaming.setPlataforma_streaming_id(dto.plataforma_streaming_id());
+        pelicula_plataforma.setPlataforma_streaming(plataforma_streaming);
+        
         pelicula_plataforma.setFecha_estreno_en_plataforma(dto.fecha_estreno_en_plataforma());
 
         Money alquiler = new Money(dto.precioAlquiler(), dto.monedaAlquiler());
@@ -58,8 +66,14 @@ public class Pelicula_plataformaServiceImpl implements IPelicula_plataformaServi
     public Pelicula_plataforma updatePeliculaPlataformaById(Long id, Pelicula_plataformaDTO dto){
         Pelicula_plataforma pelicula_plataforma = pelicula_plataformaRepo.findById(id).orElseThrow(() -> new RuntimeException("Pelicula plataforma no encontrado con id " + id));
 
-        pelicula_plataforma.setPelicula_id(dto.pelicula_id());
-        pelicula_plataforma.setPlataforma_streaming_id(dto.plataforma_streaming_id());
+        Pelicula pelicula = new Pelicula();
+        pelicula.setPelicula_id(dto.pelicula_id());
+        pelicula_plataforma.setPelicula(pelicula);
+
+        Plataforma_streaming plataforma_streaming = new Plataforma_streaming();
+        plataforma_streaming.setPlataforma_streaming_id(dto.plataforma_streaming_id());
+        pelicula_plataforma.setPlataforma_streaming(plataforma_streaming);
+        
         pelicula_plataforma.setFecha_estreno_en_plataforma(dto.fecha_estreno_en_plataforma());
 
         Money alquiler = new Money(dto.precioAlquiler(), dto.monedaAlquiler());

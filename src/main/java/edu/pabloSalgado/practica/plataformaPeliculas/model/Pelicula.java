@@ -35,7 +35,7 @@ public class Pelicula {
     private Genero genero;
     @Enumerated(EnumType.STRING)
     @Column
-    private Edad_minima edad_minima;
+    private Edad_minima edadMinima;
 
     @ManyToOne
     @JoinColumn(name = "director_id", nullable = false)
@@ -48,13 +48,13 @@ public class Pelicula {
     }
 
     public Pelicula(Long pelicula_id, String titulo, int duracion, LocalDate fecha_estreno, Genero genero,
-            Edad_minima edad_minima, Director director, Set<Actor> actores) {
+            Edad_minima edadMinima, Director director, Set<Actor> actores) {
         this.pelicula_id = pelicula_id;
         this.titulo = titulo;
         this.duracion = duracion;
         this.fecha_estreno = fecha_estreno;
         this.genero = genero;
-        this.edad_minima = edad_minima;
+        this.edadMinima = edadMinima;
         this.director = director;
         this.actores = actores;
     }
@@ -100,11 +100,11 @@ public class Pelicula {
     }
 
     public Edad_minima getEdad_minima() {
-        return edad_minima;
+        return edadMinima;
     }
 
-    public void setEdad_minima(Edad_minima edad_minima) {
-        this.edad_minima = edad_minima;
+    public void setEdad_minima(Edad_minima edadMinima) {
+        this.edadMinima = edadMinima;
     }
 
     public Director getDirector() {
@@ -126,7 +126,7 @@ public class Pelicula {
     @Override
     public String toString() {
         return "Pelicula [pelicula_id=" + pelicula_id + ", titulo=" + titulo + ", duracion=" + duracion
-                + ", fecha_estreno=" + fecha_estreno + ", genero=" + genero + ", edad_minima=" + edad_minima
+                + ", fecha_estreno=" + fecha_estreno + ", genero=" + genero + ", edadMinima=" + edadMinima
                 + ", director=" + director + ", actores=" + actores + "]";
     }
 }

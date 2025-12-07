@@ -28,10 +28,10 @@ public class Pelicula_plataforma {
     private Long peliculas_plataformas_id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pelicula_id")
-    private Long pelicula_id;
+    private Pelicula pelicula;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plataforma_streaming_id")
-    private Long plataforma_streaming_id;
+    private Plataforma_streaming plataforma_streaming;
     @Column(name = "fecha_estreno_en_plataforma", nullable = false)
     private LocalDate fecha_estreno_en_plataforma;
     @Embedded
@@ -53,12 +53,12 @@ public class Pelicula_plataforma {
     public Pelicula_plataforma() {
     }
 
-    public Pelicula_plataforma(Long peliculas_plataformas_id, Long pelicula_id,
-            Long plataforma_streaming_id, LocalDate fecha_estreno_en_plataforma, Money alquiler,
+    public Pelicula_plataforma(Long peliculas_plataformas_id, Pelicula pelicula,
+            Plataforma_streaming plataforma_streaming, LocalDate fecha_estreno_en_plataforma, Money alquiler,
             Money compra, Calidad calidad) {
         this.peliculas_plataformas_id = peliculas_plataformas_id;
-        this.pelicula_id = pelicula_id;
-        this.plataforma_streaming_id = plataforma_streaming_id;
+        this.pelicula = pelicula;
+        this.plataforma_streaming = plataforma_streaming;
         this.fecha_estreno_en_plataforma = fecha_estreno_en_plataforma;
         this.alquiler = alquiler;
         this.compra = compra;
@@ -73,20 +73,20 @@ public class Pelicula_plataforma {
         this.peliculas_plataformas_id = peliculas_plataformas_id;
     }
 
-    public Long getPelicula_id() {
-        return pelicula_id;
+    public Pelicula getPelicula() {
+        return pelicula;
     }
 
-    public void setPelicula_id(Long pelicula_id) {
-        this.pelicula_id = pelicula_id;
+    public void setPelicula(Pelicula pelicula) {
+        this.pelicula = pelicula;
     }
 
-    public Long getPlataforma_streaming_id() {
-        return plataforma_streaming_id;
+    public Plataforma_streaming getPlataforma_streaming() {
+        return plataforma_streaming;
     }
 
-    public void setPlataforma_streaming_id(Long plataforma_streaming_id) {
-        this.plataforma_streaming_id = plataforma_streaming_id;
+    public void setPlataforma_streaming(Plataforma_streaming plataforma_streaming) {
+        this.plataforma_streaming = plataforma_streaming;
     }
 
     public LocalDate getFecha_estreno_en_plataforma() {
@@ -123,9 +123,9 @@ public class Pelicula_plataforma {
 
     @Override
     public String toString() {
-        return "Pelicula_plataforma [peliculas_plataformas_id=" + peliculas_plataformas_id + ", pelicula_id="
-                + pelicula_id + ", plataforma_streaming_id=" + plataforma_streaming_id
-                + ", fecha_estreno_en_plataforma=" + fecha_estreno_en_plataforma + ", alquiler=" + alquiler
-                + ", compra=" + compra + ", calidad=" + calidad + "]";
+        return "Pelicula_plataforma [peliculas_plataformas_id=" + peliculas_plataformas_id + ", pelicula=" + pelicula
+                + ", plataforma_streaming=" + plataforma_streaming + ", fecha_estreno_en_plataforma="
+                + fecha_estreno_en_plataforma + ", alquiler=" + alquiler + ", compra=" + compra + ", calidad=" + calidad
+                + "]";
     }
 }

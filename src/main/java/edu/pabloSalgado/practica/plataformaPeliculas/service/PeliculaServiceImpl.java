@@ -32,8 +32,8 @@ public class PeliculaServiceImpl implements IPeliculaService{
         Genero genero = Genero.valueOf(dto.genero().toUpperCase());
         pelicula.setGenero(genero);
 
-        Edad_minima edad_minima = Edad_minima.valueOf(dto.edad_minima().toUpperCase());
-        pelicula.setEdad_minima(edad_minima);
+        Edad_minima edadMinima = Edad_minima.valueOf(dto.edadMinima().toUpperCase());
+        pelicula.setEdad_minima(edadMinima);
 
         Director director = new Director();
         director.setDirector_id(dto.director_id());
@@ -67,8 +67,8 @@ public class PeliculaServiceImpl implements IPeliculaService{
         Genero genero = Genero.valueOf(dto.genero().toUpperCase());
         pelicula.setGenero(genero);
 
-        Edad_minima edad_minima = Edad_minima.valueOf(dto.edad_minima().toUpperCase());
-        pelicula.setEdad_minima(edad_minima);
+        Edad_minima edadMinima = Edad_minima.valueOf(dto.edadMinima().toUpperCase());
+        pelicula.setEdad_minima(edadMinima);
 
         Director director = new Director();
         director.setDirector_id(dto.director_id());
@@ -83,4 +83,5 @@ public class PeliculaServiceImpl implements IPeliculaService{
             throw new IllegalArgumentException("Pelicula con id " + id + " no encontrado");
         } peliculaRepo.deleteById(id);
     }
+
 }

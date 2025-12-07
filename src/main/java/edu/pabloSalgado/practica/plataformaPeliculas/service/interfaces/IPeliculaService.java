@@ -16,4 +16,5 @@ public interface IPeliculaService {
     Pelicula updatePeliculaById(Long id, PeliculaDTO peliculaDTO);
     // eliminar pelicula por id
     void deletePeliculaById(Long id);
+
 }
