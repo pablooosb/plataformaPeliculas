@@ -6,7 +6,7 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula_plataforma;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.Pelicula_plataformaDTO;
 
 public interface IPelicula_plataformaService {
-    // añadir pelicula_plataforma
+    // Añadir pelicula_plataforma
     Pelicula_plataforma addPeliculaPlataforma(Pelicula_plataformaDTO dto);
     // Obtener todas las peliculas_plataforma
     List<Pelicula_plataforma> showAllPeliculasPlataforma();
@@ -16,4 +16,6 @@ public interface IPelicula_plataformaService {
     Pelicula_plataforma updatePeliculaPlataformaById(Long id, Pelicula_plataformaDTO pelicula_plataformaDTO);
     // Eliminar pelicula_plataforma por id
     void deletePeliculaPlataformaById(Long id);
+    // Obtener el id de las películas con precio de compra menor a 10
+    List<Long> findPeliculasPrecioCompraMenorQue(Double precio);
 }

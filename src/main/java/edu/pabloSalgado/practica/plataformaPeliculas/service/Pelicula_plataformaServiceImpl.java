@@ -94,4 +94,9 @@ public class Pelicula_plataformaServiceImpl implements IPelicula_plataformaServi
             throw new IllegalArgumentException("Pelicula plataforma con id " + id + " no encontrada");
         } pelicula_plataformaRepo.deleteById(id);
     }
+
+    @Override
+    public List<Long> findPeliculasPrecioCompraMenorQue(Double precio) {
+        return pelicula_plataformaRepo.findPeliculasIdPrecioCompraMenorQue(precio);
+    }
 }
