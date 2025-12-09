@@ -48,12 +48,7 @@ public class PeliculaPlataformaController {
 
     @DeleteMapping("/delete/{id}")
     public void deletePeliculaPlataforma(@PathVariable("id") Long id){
-        try {
-            pelicula_plataformaService.deletePeliculaPlataformaById(id);
-        } catch (Exception e){
-            System.err.println("Error al eliminar la pelicula plataforma con id " + id + ": " + e.getMessage());
-            throw e;
-        }
+        pelicula_plataformaService.deletePeliculaPlataformaById(id);
     }
 
     // Endpoint para obtener el objeto pelicula con precio de compra menor a 10

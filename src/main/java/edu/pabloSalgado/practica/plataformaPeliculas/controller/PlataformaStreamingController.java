@@ -44,12 +44,7 @@ public class PlataformaStreamingController {
 
     @DeleteMapping("/delete/{id}")
     public void deletePlataformaStreaming(@PathVariable("id") Long id){
-        try {
-            plataforma_streamingService.deletePlataformaStreamingById(id);
-        } catch (Exception e){
-            System.err.println("Error al eliminar la plataforma de streaming con id " + id + ": " + e.getMessage());
-            throw e;
-        }
+        plataforma_streamingService.deletePlataformaStreamingById(id);
     }
 
     // Endpoint para obtener las plataformas de streaming de USA

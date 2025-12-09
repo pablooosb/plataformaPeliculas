@@ -49,12 +49,7 @@ public class ActorController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteActor(@PathVariable("id") Long id){
-        try {
-            actorService.deleteActorById(id);
-        } catch (Exception e){
-            System.err.println("Error al eliminar el actor con id " + id + ": " + e.getMessage());
-            throw e;
-        }
+        actorService.deleteActorById(id);
     }
 
     // Endpoint para obtener actores activos

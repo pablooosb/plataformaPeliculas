@@ -49,12 +49,7 @@ public class DirectorController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteDirector(@PathVariable("id") Long id){
-        try {
-            directorService.deleteDirectorById(id);
-        } catch (Exception e){
-            System.err.println("Error al eliminar el director con id " + id + ": " + e.getMessage());
-            throw e;
-        }
+        directorService.deleteDirectorById(id);
     }
 
     // Endpoint para obtener directores mayores a 70 años
