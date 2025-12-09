@@ -16,4 +16,6 @@ public interface IActorService {
     Actor updateActorById(Long id, ActorDTO dto);
     // eliminar actor por id
     void deleteActorById(Long id);
+    // buscar actores activos
+    List<Actor> findActoresActivos();
 }

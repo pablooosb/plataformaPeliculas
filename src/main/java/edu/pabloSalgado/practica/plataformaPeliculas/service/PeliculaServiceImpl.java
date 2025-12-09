@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Director;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
@@ -83,5 +82,10 @@ public class PeliculaServiceImpl implements IPeliculaService{
         if (!peliculaRepo.existsById(id)){
             throw new IllegalArgumentException("Pelicula con id " + id + " no encontrado");
         } peliculaRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Pelicula> getPeliculasAptas12(){
+        return peliculaRepo.getPeliculasAptas12();
     }
 }

@@ -3,6 +3,8 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 import java.time.LocalDate;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_minima;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 import jakarta.persistence.Column;
@@ -37,10 +39,12 @@ public class Pelicula {
     @Column
     private Edad_minima edadMinima;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "director_id", nullable = false)
     private Director director;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "peliculas")
     private Set<Actor> actores;
 

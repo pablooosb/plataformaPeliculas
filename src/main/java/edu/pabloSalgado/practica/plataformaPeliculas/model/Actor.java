@@ -2,6 +2,8 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Dni;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Fecha_nacimiento;
 import jakarta.persistence.AttributeOverride;
@@ -48,6 +50,7 @@ public class Actor {
     @Column
     private boolean activo;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "actuaciones",
         joinColumns = @JoinColumn(name = "actor_id"),

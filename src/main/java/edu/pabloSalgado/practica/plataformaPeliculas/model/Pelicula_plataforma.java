@@ -2,6 +2,8 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Calidad;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Money;
 import jakarta.persistence.AttributeOverride;
@@ -26,9 +28,11 @@ public class Pelicula_plataforma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long peliculas_plataformas_id;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pelicula_id")
     private Pelicula pelicula;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plataforma_streaming_id")
     private Plataforma_streaming plataforma_streaming;

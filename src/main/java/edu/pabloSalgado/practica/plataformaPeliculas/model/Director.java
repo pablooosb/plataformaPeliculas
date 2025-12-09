@@ -2,6 +2,8 @@ package edu.pabloSalgado.practica.plataformaPeliculas.model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Dni;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.vo.Fecha_nacimiento;
 import jakarta.persistence.AttributeOverride;
@@ -46,6 +48,7 @@ public class Director {
     @Column
     private boolean activo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Pelicula> peliculas;
 

@@ -96,7 +96,12 @@ public class Pelicula_plataformaServiceImpl implements IPelicula_plataformaServi
     }
 
     @Override
-    public List<Long> findPeliculasPrecioCompraMenorQue(Double precio) {
+    public List<Pelicula> findPeliculasPrecioCompraMenorQue(Double precio) {
         return pelicula_plataformaRepo.findPeliculasIdPrecioCompraMenorQue(precio);
+    }
+
+    @Override
+    public int countPeliculasByPlataformaStreamingId(int plataforma_streaming_id){
+        return pelicula_plataformaRepo.countPeliculasByPlataformaStreamingId(plataforma_streaming_id);
     }
 }

@@ -78,4 +78,9 @@ public class DirectorServiceImpl implements IDirectorService{
             throw new IllegalArgumentException("Director con id " + id + " no encontrado");
         } directorRepo.deleteById(id);
     }
+
+    @Override
+    public List<Director> findDirectoresMayoresA70(){
+        return directorRepo.findDirectoresMayoresA70();
+    }
 }

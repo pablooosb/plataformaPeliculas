@@ -78,4 +78,10 @@ public class ActorServiceImpl implements IActorService{
             throw new IllegalArgumentException("Actor con id " + id + " no encontrado");
         } actorRepo.deleteById(id);
     }
+
+    @Override
+    public List<Actor> findActoresActivos(){
+        return actorRepo.findActoresActivos();
+    }
+
 }

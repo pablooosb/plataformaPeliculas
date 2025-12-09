@@ -16,4 +16,6 @@ public interface IDirectorService {
     Director updateDirectorById(Long id, DirectorDTO directorDTO);
     // eliminar director por id
     void deleteDirectorById(Long id);
+    // buscar directores mayores a 70 años
+    List<Director> findDirectoresMayoresA70();
 }
