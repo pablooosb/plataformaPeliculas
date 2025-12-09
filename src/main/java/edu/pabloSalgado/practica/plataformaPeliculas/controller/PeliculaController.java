@@ -24,6 +24,12 @@ public class PeliculaController {
     @Autowired
     private PeliculaMapper peliculaMapper;
 
+    @PostMapping("/add")
+    public PeliculaDTO addPelicula(@RequestBody PeliculaDTO peliculaDTO){
+        Pelicula pelicula = peliculaService.addPelicula(peliculaDTO);
+        return peliculaMapper.toDto(pelicula);
+    }
+
     @GetMapping
     public List<Pelicula> listarPeliculas(){
         return peliculaService.showAllPeliculas();
@@ -43,12 +49,7 @@ public class PeliculaController {
 
     @DeleteMapping("/delete/{id}")
     public void deletePelicula(@PathVariable("id") Long id){
-        try {
-            peliculaService.deletePeliculaById(id);
-        } catch (Exception e){
-            System.err.println("Error al eliminar la pelicula con id " + id + ": " + e.getMessage());
-            throw e;
-        }
+        peliculaService.deletePeliculaById(id);
     }
 
     // Endpoint para obtener peliculas aptas para un niño de 12 años

@@ -24,6 +24,12 @@ public class DirectorController {
     @Autowired
     private DirectorMapper directorMapper;
 
+    @PostMapping("/add")
+    public DirectorDTO addDirector(@RequestBody DirectorDTO directorDTO){
+        Director director = directorService.addDirector(directorDTO);
+        return directorMapper.toDto(director);
+    }
+
     @GetMapping
     public List<Director> listarDirectores(){
         return directorService.showAllDirectors();

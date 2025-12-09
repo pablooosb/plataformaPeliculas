@@ -28,6 +28,12 @@ public class PeliculaPlataformaController {
     @Autowired
     private Pelicula_plataformaMapper pelicula_plataformaMapper;
 
+    @PostMapping("/add")
+    public Pelicula_plataformaDTO addPeliculaPlataforma(@RequestBody Pelicula_plataformaDTO pelicula_plataformaDTO){
+        Pelicula_plataforma pelicula_plataforma = pelicula_plataformaService.addPeliculaPlataforma(pelicula_plataformaDTO);
+        return pelicula_plataformaMapper.toDto(pelicula_plataforma);
+    }
+
     @GetMapping
     public List<Pelicula_plataforma> listarPeliculasPlataformas(){
         return pelicula_plataformaService.showAllPeliculasPlataforma();

@@ -24,6 +24,12 @@ public class ActorController {
     @Autowired
     private ActorMapper actorMapper;
 
+    @PostMapping("/add")
+    public ActorDTO addActor(@RequestBody ActorDTO actorDTO){
+        Actor actor = actorService.addActor(actorDTO);
+        return actorMapper.toDto(actor);
+    }
+
     @GetMapping
     public List<Actor> listarActores(){
         return actorService.showAllActors();

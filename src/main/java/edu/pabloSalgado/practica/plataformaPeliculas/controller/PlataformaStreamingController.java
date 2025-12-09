@@ -24,6 +24,12 @@ public class PlataformaStreamingController {
     @Autowired
     private Plataforma_streamingMapper plataforma_streamingMapper;
 
+    @PostMapping("/add")
+    public Plataforma_streamingDTO addPlataformaStreaming(@RequestBody Plataforma_streamingDTO plataforma_streamingDTO){
+        Plataforma_streaming plataforma_streaming = plataforma_streamingService.addPlataformaStreaming(plataforma_streamingDTO);
+        return plataforma_streamingMapper.todDto(plataforma_streaming);
+    }
+
     @GetMapping
     public List<Plataforma_streaming> listarPlataformasStreaming(){
         return plataforma_streamingService.showAllPlataformasStreaming();
