@@ -10,7 +10,7 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
 
 @Repository
 public interface PeliculaRepository extends JpaRepository<Pelicula, Long>{
-    // peliculas que pueda ver un niño de 12 años
+    // buscar peliculas que pueda ver un niño de 12 años
     @Query("SELECT p FROM Pelicula p WHERE p.edadMinima IN(PEGI_3, PEGI_7, PEGI_12)")
     List<Pelicula> getPeliculasAptas12();
 }

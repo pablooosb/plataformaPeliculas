@@ -13,7 +13,7 @@ public interface IActorService {
     // obtener actor por id
     Actor showActorById(Long id);
     // actualizar actores por id
-    Actor updateActorById(Long id, ActorDTO dto);
+    Actor updateActor(Actor actor);
     // eliminar actor por id
     void deleteActorById(Long id);
     // buscar actores activos

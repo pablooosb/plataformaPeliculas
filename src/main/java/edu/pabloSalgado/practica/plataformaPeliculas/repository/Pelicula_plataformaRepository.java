@@ -12,12 +12,11 @@ import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula_plataforma;
 
 @Repository
 public interface Pelicula_plataformaRepository extends JpaRepository<Pelicula_plataforma, Long>{
-    // peliculas cuyo precio de compra sea inferior a 10
+    // mostrar peliculas cuyo precio de compra sea inferior a 10
     @Query("SELECT pP.pelicula FROM Pelicula_plataforma pP WHERE pP.compra.amount < ?1")
     List<Pelicula> findPeliculasIdPrecioCompraMenorQue(Double precioCompra);
     
     // mostrar las plataformas con cuantas peliculas tienen
     @Query("SELECT COUNT(pP) FROM Pelicula_plataforma pP WHERE pP.plataforma_streaming.id = :plataformaStreamingId")
-int countPeliculasByPlataformaStreamingId(@Param("plataformaStreamingId") int plataformaStreamingId);
-
+    int countPeliculasByPlataformaStreamingId(@Param("plataformaStreamingId") int plataformaStreamingId);
 }

@@ -13,7 +13,7 @@ public interface IDirectorService {
     // obtener director por id
     Director showDirectorById(Long id);
     // actualizar directores por dni
-    Director updateDirectorById(Long id, DirectorDTO directorDTO);
+    Director updateDirector(Director director);
     // eliminar director por id
     void deleteDirectorById(Long id);
     // buscar directores mayores a 70 años

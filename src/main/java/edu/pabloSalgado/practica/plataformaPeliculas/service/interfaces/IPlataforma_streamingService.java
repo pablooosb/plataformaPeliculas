@@ -13,7 +13,9 @@ public interface IPlataforma_streamingService {
     // obtener plataforma por id
     Plataforma_streaming showPlataformaStreamingById(Long id);
     // Actualizar plataformas por id
-    Plataforma_streaming updatePlataformaStreamingById(Long id, Plataforma_streamingDTO plataforma_streamingDTO);
+    Plataforma_streaming updatePlataformaStreaming(Plataforma_streaming plataforma_streaming);
     // Eliminar plataforma por id
     void deletePlataformaStreamingById(Long id);
+    // mostrar plataformas de streaming que sean de USA
+    List<Plataforma_streaming> findPlataformasStreamingByPais();
 }

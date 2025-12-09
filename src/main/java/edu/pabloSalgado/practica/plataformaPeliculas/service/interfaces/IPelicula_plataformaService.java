@@ -14,7 +14,7 @@ public interface IPelicula_plataformaService {
     // obtener pelicula_plataforma por id
     Pelicula_plataforma showPeliculaPlataformaById(Long id);
     // Actualizar pelicula_plataforma por id
-    Pelicula_plataforma updatePeliculaPlataformaById(Long id, Pelicula_plataformaDTO pelicula_plataformaDTO);
+    Pelicula_plataforma updatePeliculaPlataforma(Pelicula_plataforma pelicula_plataforma);
     // Eliminar pelicula_plataforma por id
     void deletePeliculaPlataformaById(Long id);
     // Obtener las peliculas con precio de compra menor a 10

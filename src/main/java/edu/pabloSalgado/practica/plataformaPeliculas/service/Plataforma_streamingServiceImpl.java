@@ -46,15 +46,14 @@ public class Plataforma_streamingServiceImpl implements IPlataforma_streamingSer
     }
 
     @Override
-    public Plataforma_streaming updatePlataformaStreamingById(Long id, Plataforma_streamingDTO dto){
-        Plataforma_streaming plataforma_streaming = plataforma_streamingRepo.findById(id).orElseThrow(() -> new RuntimeException("Plataforma de streaming no encontrado con id " + id));
+    public Plataforma_streaming updatePlataformaStreaming(Plataforma_streaming plataforma_streaming){
+        Plataforma_streaming actual = plataforma_streamingRepo.findById(plataforma_streaming.getPlataforma_streaming_id()).orElseThrow(() -> new RuntimeException("Plataforma de streaming no encontrado con id " + plataforma_streaming.getPlataforma_streaming_id()));
 
-        plataforma_streaming.setNombre(dto.nombre());
+        actual.setNombre(plataforma_streaming.getNombre());
 
-        Pais pais = Pais.valueOf(dto.pais().toUpperCase());
-        plataforma_streaming.setPais(pais);
+        actual.setPais(plataforma_streaming.getPais());
 
-        return plataforma_streamingRepo.save(plataforma_streaming);
+        return plataforma_streamingRepo.save(actual);
     }
 
     @Override
@@ -62,5 +61,10 @@ public class Plataforma_streamingServiceImpl implements IPlataforma_streamingSer
         if (!plataforma_streamingRepo.existsById(id)){
             throw new IllegalArgumentException("Plataforma de streaming con id " + id + " no encontrada");
         } plataforma_streamingRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Plataforma_streaming> findPlataformasStreamingByPais(){
+        return plataforma_streamingRepo.findPlataformasStreamingByPais(Pais.USA);
     }
 }

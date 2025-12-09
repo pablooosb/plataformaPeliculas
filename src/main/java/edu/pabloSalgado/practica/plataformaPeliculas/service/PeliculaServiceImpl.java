@@ -57,24 +57,22 @@ public class PeliculaServiceImpl implements IPeliculaService{
     }
 
     @Override
-    public Pelicula updatePeliculaById(Long id, PeliculaDTO dto){
-        Pelicula pelicula = peliculaRepo.findById(id).orElseThrow(() -> new RuntimeException("Pelicula no encontrado con id " + id));
+    public Pelicula updatePelicula(Pelicula pelicula){
+        Pelicula actual = peliculaRepo.findById(pelicula.getPelicula_id()).orElseThrow(() -> new RuntimeException("Pelicula no encontrado con id " + pelicula.getPelicula_id()));
 
-        pelicula.setTitulo(dto.titulo());
-        pelicula.setDuracion(dto.duracion());
-        pelicula.setFecha_estreno(dto.fecha_estreno());
+        actual.setTitulo(pelicula.getTitulo());
+        actual.setDuracion(pelicula.getDuracion());
+        actual.setFecha_estreno(pelicula.getFecha_estreno());
 
-        Genero genero = Genero.valueOf(dto.genero().toUpperCase());
-        pelicula.setGenero(genero);
+        actual.setGenero(pelicula.getGenero());
 
-        Edad_minima edadMinima = Edad_minima.valueOf(dto.edadMinima().toUpperCase());
-        pelicula.setEdad_minima(edadMinima);
+        actual.setEdad_minima(pelicula.getEdad_minima());
 
         Director director = new Director();
-        director.setDirector_id(dto.director_id());
-        pelicula.setDirector(director);
+        director.setDirector_id(pelicula.getDirector().getDirector_id());
+        actual.setDirector(director);
 
-        return peliculaRepo.save(pelicula);
+        return peliculaRepo.save(actual);
     }
 
     @Override

@@ -63,29 +63,26 @@ public class Pelicula_plataformaServiceImpl implements IPelicula_plataformaServi
     }
 
     @Override
-    public Pelicula_plataforma updatePeliculaPlataformaById(Long id, Pelicula_plataformaDTO dto){
-        Pelicula_plataforma pelicula_plataforma = pelicula_plataformaRepo.findById(id).orElseThrow(() -> new RuntimeException("Pelicula plataforma no encontrado con id " + id));
+    public Pelicula_plataforma updatePeliculaPlataforma(Pelicula_plataforma pelicula_plataforma){
+        Pelicula_plataforma actual = pelicula_plataformaRepo.findById(pelicula_plataforma.getPeliculas_plataformas_id()).orElseThrow(() -> new RuntimeException("Pelicula plataforma no encontrado con id " + pelicula_plataforma.getPeliculas_plataformas_id()));
 
         Pelicula pelicula = new Pelicula();
-        pelicula.setPelicula_id(dto.pelicula_id());
-        pelicula_plataforma.setPelicula(pelicula);
+        pelicula.setPelicula_id(pelicula_plataforma.getPelicula().getPelicula_id());
+        actual.setPelicula(pelicula);
 
         Plataforma_streaming plataforma_streaming = new Plataforma_streaming();
-        plataforma_streaming.setPlataforma_streaming_id(dto.plataforma_streaming_id());
-        pelicula_plataforma.setPlataforma_streaming(plataforma_streaming);
+        plataforma_streaming.setPlataforma_streaming_id(pelicula_plataforma.getPlataforma_streaming().getPlataforma_streaming_id());
+        actual.setPlataforma_streaming(plataforma_streaming);
         
-        pelicula_plataforma.setFecha_estreno_en_plataforma(dto.fecha_estreno_en_plataforma());
+        actual.setFecha_estreno_en_plataforma(pelicula_plataforma.getFecha_estreno_en_plataforma());
 
-        Money alquiler = new Money(dto.precioAlquiler(), dto.monedaAlquiler());
-        pelicula_plataforma.setAlquiler(alquiler);
+        actual.setCompra(pelicula_plataforma.getCompra());
 
-        Money compra = new Money(dto.precioCompra(), dto.monedaCompra());
-        pelicula_plataforma.setCompra(compra);
+        actual.setAlquiler(pelicula_plataforma.getAlquiler());
 
-        Calidad calidad = Calidad.valueOf(dto.calidad().toUpperCase());
-        pelicula_plataforma.setCalidad(calidad);
+        actual.setCalidad(pelicula_plataforma.getCalidad());
 
-        return pelicula_plataformaRepo.save(pelicula_plataforma);
+        return pelicula_plataformaRepo.save(actual);
     }
 
     @Override

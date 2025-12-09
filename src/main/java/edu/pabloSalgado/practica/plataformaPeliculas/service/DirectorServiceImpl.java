@@ -54,22 +54,20 @@ public class DirectorServiceImpl implements IDirectorService{
     }
 
     @Override
-    public Director updateDirectorById(Long id, DirectorDTO dto){
-        Director director = directorRepo.findById(id).orElseThrow(() -> new RuntimeException("Director no encontrado con id " + id));
+    public Director updateDirector(Director director){
+        Director actual = directorRepo.findById(director.getDirector_id()).orElseThrow(() -> new RuntimeException("Director no encontrado con id " + director.getDirector_id()));
 
-        director.setNombre(dto.nombre());
-        director.setApellido(dto.apellido());
+        actual.setNombre(director.getNombre());
+        actual.setApellido(director.getApellido());
 
-        Dni dni = new Dni(dto.dniNumero(), dto.dniLetra());
-        director.setDni(dni);
+        actual.setDni(director.getDni());
 
-        director.setNacionalidad(dto.nacionalidad());
-        director.setActivo(dto.activo());
+        actual.setNacionalidad(director.getNacionalidad());
+        actual.setActivo(director.isActivo());
 
-        Fecha_nacimiento fecha_nacimiento = new Fecha_nacimiento(dto.nacimientoDia(), dto.nacimientoMes(), dto.nacimientoAnho());
-        director.setFecha_nacimiento(fecha_nacimiento);
+        actual.setFecha_nacimiento(director.getFecha_nacimiento());
 
-        return directorRepo.save(director);
+        return directorRepo.save(actual);
     }
 
     @Override

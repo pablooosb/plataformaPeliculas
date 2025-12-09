@@ -13,7 +13,7 @@ public interface IPeliculaService {
     // obtener pelicula por id
     Pelicula showPeliculaById(Long id);
     // actualizar pelicula por id
-    Pelicula updatePeliculaById(Long id, PeliculaDTO peliculaDTO);
+    Pelicula updatePelicula(Pelicula pelicula);
     // eliminar pelicula por id
     void deletePeliculaById(Long id);
     // obtener peliculas aptas para un niño de 12 años

@@ -1,11 +1,14 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model.mapper;
 
+import org.springframework.stereotype.Component;
+
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Director;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.PeliculaDTO;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Edad_minima;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Genero;
 
+@Component
 public class PeliculaMapper {
     public PeliculaDTO toDto(Pelicula pelicula){
         if (pelicula == null) return null;

@@ -1,9 +1,12 @@
 package edu.pabloSalgado.practica.plataformaPeliculas.model.mapper;
 
+import org.springframework.stereotype.Component;
+
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Plataforma_streaming;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.Plataforma_streamingDTO;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.enums.Pais;
 
+@Component
 public class Plataforma_streamingMapper {
     public Plataforma_streamingDTO todDto(Plataforma_streaming plataforma_streaming){
         if (plataforma_streaming == null) return null;

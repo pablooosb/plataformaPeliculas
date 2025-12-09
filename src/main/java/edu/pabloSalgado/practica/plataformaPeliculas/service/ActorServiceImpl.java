@@ -54,22 +54,20 @@ public class ActorServiceImpl implements IActorService{
     }
 
     @Override
-    public Actor updateActorById(Long id, ActorDTO dto){
-        Actor actor = actorRepo.findById(id).orElseThrow(() -> new RuntimeException("Actor no encontrado con id " + id));
+    public Actor updateActor(Actor actor){
+        Actor actual = actorRepo.findById(actor.getActor_id()).orElseThrow(() -> new RuntimeException("Actor no encontrado con id " + actor.getActor_id()));
 
-        actor.setNombre(dto.nombre());
-        actor.setApellido(dto.apellido());
+        actual.setNombre(actor.getNombre());
+        actual.setApellido(actor.getApellido());
 
-        Dni dni = new Dni(dto.dniNumero(), dto.dniLetra());
-        actor.setDni(dni);
+        actual.setDni(actor.getDni());
 
-        actor.setNacionalidad(dto.nacionalidad());
-        actor.setActivo(dto.activo());
+        actual.setNacionalidad(actor.getNacionalidad());
+        actual.setActivo(actor.isActivo());
 
-        Fecha_nacimiento fecha_nacimiento = new Fecha_nacimiento(dto.nacimientoDia(), dto.nacimientoMes(), dto.nacimientoAnho());
-        actor.setFecha_nacimiento(fecha_nacimiento);
+        actual.setFecha_nacimiento(actor.getFecha_nacimiento());
 
-        return actorRepo.save(actor);
+        return actorRepo.save(actual);
     }
 
     @Override
