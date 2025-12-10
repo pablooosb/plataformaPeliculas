@@ -98,7 +98,7 @@ public class Pelicula_plataformaServiceImpl implements IPelicula_plataformaServi
     }
 
     @Override
-    public int countPeliculasByPlataformaStreamingId(int plataforma_streaming_id){
-        return pelicula_plataformaRepo.countPeliculasByPlataformaStreamingId(plataforma_streaming_id);
+    public List<Object[]> countPeliculasByPlataformaStreamingId(){
+        return pelicula_plataformaRepo.countPeliculasByPlataformaStreamingId();
     }
 }

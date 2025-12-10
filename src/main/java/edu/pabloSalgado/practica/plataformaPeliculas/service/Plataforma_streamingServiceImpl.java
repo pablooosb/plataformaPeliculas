@@ -3,6 +3,7 @@ package edu.pabloSalgado.practica.plataformaPeliculas.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Plataforma_streaming;
@@ -64,7 +65,7 @@ public class Plataforma_streamingServiceImpl implements IPlataforma_streamingSer
     }
 
     @Override
-    public List<Plataforma_streaming> findPlataformasStreamingByPais(){
-        return plataforma_streamingRepo.findPlataformasStreamingByPais(Pais.USA);
+    public List<Object[]> countPlataformasStreamingByPais(){
+        return plataforma_streamingRepo.countPlataformasStreamingByPais();
     }
 }

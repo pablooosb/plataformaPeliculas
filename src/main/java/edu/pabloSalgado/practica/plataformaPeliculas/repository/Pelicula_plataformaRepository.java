@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
@@ -16,7 +15,7 @@ public interface Pelicula_plataformaRepository extends JpaRepository<Pelicula_pl
     @Query("SELECT pP.pelicula FROM Pelicula_plataforma pP WHERE pP.compra.amount < ?1")
     List<Pelicula> findPeliculasIdPrecioCompraMenorQue(Double precioCompra);
     
-    // mostrar las plataformas con cuantas peliculas tienen
-    @Query("SELECT COUNT(pP) FROM Pelicula_plataforma pP WHERE pP.plataforma_streaming.id = :plataformaStreamingId")
-    int countPeliculasByPlataformaStreamingId(@Param("plataformaStreamingId") int plataformaStreamingId);
+    // mostrar las plataformas de streaming con el numero de peliculas que tiene cada una
+    @Query("SELECT pP.plataforma_streaming, COUNT(pP.pelicula.id)" + "FROM Pelicula_plataforma pP " + "GROUP BY pP.plataforma_streaming")
+    List<Object[]> countPeliculasByPlataformaStreamingId();
 }

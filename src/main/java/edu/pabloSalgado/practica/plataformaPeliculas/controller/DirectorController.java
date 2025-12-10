@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.mapper.DirectorMapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Director;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.DirectorDTO;
-import edu.pabloSalgado.practica.plataformaPeliculas.model.mapper.DirectorMapper;
 
 @RestController
 @RequestMapping("/directores")

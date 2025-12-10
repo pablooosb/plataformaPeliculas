@@ -16,6 +16,6 @@ public interface IPlataforma_streamingService {
     Plataforma_streaming updatePlataformaStreaming(Plataforma_streaming plataforma_streaming);
     // Eliminar plataforma por id
     void deletePlataformaStreamingById(Long id);
-    // mostrar plataformas de streaming que sean de USA
-    List<Plataforma_streaming> findPlataformasStreamingByPais();
+    // mostrar los paises con cuantas plataformas de streaming cada uno
+    List<Object[]> countPlataformasStreamingByPais();
 }

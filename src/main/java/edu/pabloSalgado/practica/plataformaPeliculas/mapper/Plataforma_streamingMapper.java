@@ -1,4 +1,4 @@
-package edu.pabloSalgado.practica.plataformaPeliculas.model.mapper;
+package edu.pabloSalgado.practica.plataformaPeliculas.mapper;
 
 import org.springframework.stereotype.Component;
 

@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.mapper.Plataforma_streamingMapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Plataforma_streaming;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.Plataforma_streamingDTO;
-import edu.pabloSalgado.practica.plataformaPeliculas.model.mapper.Plataforma_streamingMapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.service.interfaces.IPlataforma_streamingService;
 
 @RestController
@@ -47,10 +47,9 @@ public class PlataformaStreamingController {
         plataforma_streamingService.deletePlataformaStreamingById(id);
     }
 
-    // Endpoint para obtener las plataformas de streaming de USA
-    @GetMapping("/usa")
-    public List<Plataforma_streaming> listarPlataformasUSA() {
-        return plataforma_streamingService.findPlataformasStreamingByPais();
+    // Endpoint para obtener cada pais con el numero de plataformas de streaming
+    @GetMapping("/count")
+    public List<Object[]> obtenerPlataformasStreamingByPais(){
+        return plataforma_streamingService.countPlataformasStreamingByPais();
     }
-
 }

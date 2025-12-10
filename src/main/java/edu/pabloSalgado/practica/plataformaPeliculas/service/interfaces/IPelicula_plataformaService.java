@@ -20,5 +20,5 @@ public interface IPelicula_plataformaService {
     // Obtener las peliculas con precio de compra menor a 10
     List<Pelicula> findPeliculasPrecioCompraMenorQue(Double precio);
     // Obtener el numero de peliculas por plataforma de streaming
-    int countPeliculasByPlataformaStreamingId(int plataforma_streaming_id);
+    List<Object[]> countPeliculasByPlataformaStreamingId();
 }

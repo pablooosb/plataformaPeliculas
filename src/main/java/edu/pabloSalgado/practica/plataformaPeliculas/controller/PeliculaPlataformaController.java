@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.mapper.Pelicula_plataformaMapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Pelicula_plataforma;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.Pelicula_plataformaDTO;
-import edu.pabloSalgado.practica.plataformaPeliculas.model.mapper.Pelicula_plataformaMapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.repository.Pelicula_plataformaRepository;
 import edu.pabloSalgado.practica.plataformaPeliculas.service.interfaces.IPelicula_plataformaService;
 
@@ -57,9 +57,9 @@ public class PeliculaPlataformaController {
         return pelicula_plataformaRepository.findPeliculasIdPrecioCompraMenorQue(10.0);
     }
 
-    // Endpoint para obtener cuantas peliculas tiene cada plataforma de streaming
-    @GetMapping("/{plataforma_streaming_id}/plataformaStreaming/count")
-    public int countPeliculasByPlataformaStreamingId(@PathVariable int plataforma_streaming_id){
-        return pelicula_plataformaService.countPeliculasByPlataformaStreamingId(plataforma_streaming_id);
+    // Endpoint para obtener las plataformas de streaming con cuantas peliculas tiene cada una
+    @GetMapping("/count")
+    public List<Object[]> countPeliculasByPlataformaStreamingId(){
+        return pelicula_plataformaService.countPeliculasByPlataformaStreamingId();
     }
 }

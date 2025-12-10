@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.pabloSalgado.practica.plataformaPeliculas.mapper.ActorMapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.Actor;
 import edu.pabloSalgado.practica.plataformaPeliculas.model.dto.ActorDTO;
-import edu.pabloSalgado.practica.plataformaPeliculas.model.mapper.ActorMapper;
 import edu.pabloSalgado.practica.plataformaPeliculas.service.interfaces.IActorService;
 
 @RestController
